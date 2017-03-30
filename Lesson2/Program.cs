@@ -9,7 +9,7 @@ namespace Lesson2
     class Program
     {
         static void Main(string[] args)
-        {            
+        {
             string answer = AskForChoice();
 
             while (answer != "q")
@@ -48,8 +48,8 @@ namespace Lesson2
                         //Task6dot1();
                         answer = AskForChoice();
                         break;
-                    case "7":
-                       // Task7();
+                    case "21":
+                        Task21();
                         answer = AskForChoice();
                         break;
                     default:
@@ -92,7 +92,7 @@ namespace Lesson2
             for (int i = 0; i < 10; i++)
                 Console.Write(array[i] + " ");
             Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
-            
+
         }
         static void Task10()
         {
@@ -108,6 +108,30 @@ namespace Lesson2
                 Console.WriteLine(array[i]);
             Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
 
+        }
+        static void Task21()
+        {
+            Random rnd = new Random();
+            int[] a = new int[10];
+            for (int i = 0; i < 10; i++)
+                a[i] = i;
+            for (int i = 0; i < 5; i++)
+            {
+                int i1 = rnd.Next(0, 10); // первый индекс
+                int i2 = rnd.Next(0, 10); // второй индекс
+                                           // обмен значений элементов с индексами i1 и i2 
+                int temp = a[i1];
+                a[i1] = a[i2];
+                a[i2] = temp;
+            }
+            Console.WriteLine("Значения элементов");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write("{0,4} ", a[i]);
+                //if (i % 5 == 4)
+                  //  Console.WriteLine();
+            }
+            Console.ReadKey();
         }
     }
 }
