@@ -12,6 +12,8 @@ namespace Lesson2
         {
             string answer = AskForChoice();
 
+            
+
             while (answer != "q")
             {
                 switch (answer)
@@ -28,28 +30,12 @@ namespace Lesson2
                         Task10();
                         answer = AskForChoice();
                         break;
-                    case "3":
-                        //Task3();
+                    case "11":
+                        Task11();
                         answer = AskForChoice();
                         break;
-                    case "4":
-                        //Task4();
-                        answer = AskForChoice();
-                        break;
-                    case "5":
-                        //Task5();
-                        answer = AskForChoice();
-                        break;
-                    case "6":
-                        //Task6();
-                        answer = AskForChoice();
-                        break;
-                    case "6.1":
-                        //Task6dot1();
-                        answer = AskForChoice();
-                        break;
-                    case "21":
-                        Task21();
+                    case "12":
+                        Task12();
                         answer = AskForChoice();
                         break;
                     default:
@@ -71,18 +57,8 @@ namespace Lesson2
             Console.Write("Reads a string from the keyboard and output it backwards\nInput string:\t");
             string inputString = Console.ReadLine();
             char[] charArray = inputString.ToCharArray();
-            char temp;
-            for (int i = 0, j = inputString.Length - 1; i < j; i++, j--)
-            {
-                temp = charArray[i];
-                charArray[i] = charArray[j];
-                charArray[j] = temp;
-            }
-            Console.Write("\t\t");
-            for (int i = 0; i < charArray.Length; i++)
-            {
-                Console.Write(charArray[i]);
-            }
+            Array.Reverse(charArray);
+            Console.Write("\t\t"); Console.Write(charArray);
             Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
         }
         static void Task9()
@@ -108,16 +84,64 @@ namespace Lesson2
                 Console.WriteLine(array[i]);
             Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
         }
+        static void Task11()
+        {
+            Console.WriteLine("Outpiuts the sum of elements of the array");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            int sum = 0;
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                sum += array[i];
+            }
+            Console.WriteLine("The sum is: " + sum);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task12()
+        {
+            Console.WriteLine("Outpiuts the multiplication of elements of the array");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            int multiplication = 1;
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                multiplication *= array[i];
+            }
+            Console.WriteLine("The multiplication is: " + multiplication);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+        }
         static void Task16()
         {
             Console.WriteLine("Swap the minimum and maximum elements of an array");
             Console.WriteLine("Input array size: \t");
             int arraySize = int.Parse(Console.ReadLine());
-            int[] array = new int[arraySize];
+            int[] array = new int[arraySize];            
             Console.WriteLine("Fill the array in with {0} elements:", arraySize);
             for (int i = 0; i < arraySize; i++)
                 array[i] = int.Parse(Console.ReadLine());
-            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+            int minI = 0, maxI = 0;
+            int temp;
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (array[i] < array[minI])
+                    minI = i;
+                else if (array[i] > array[maxI])
+                    maxI = i;
+            }
+            temp = array[minI];
+            array[minI] = array[maxI];
+            array[maxI] = temp;
+            for (int i = 0; i < arraySize; i++)
+            {
+                Console.Write("{0,4}", array[i]);
+            }
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
         }
         static void Task21()
         {
