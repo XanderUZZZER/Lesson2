@@ -107,7 +107,17 @@ namespace Lesson2
             for (int i = 0; i < arraySize; i++)
                 Console.WriteLine(array[i]);
             Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
-
+        }
+        static void Task16()
+        {
+            Console.WriteLine("Swap the minimum and maximum elements of an array");
+            Console.WriteLine("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+                array[i] = int.Parse(Console.ReadLine());
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
         }
         static void Task21()
         {
