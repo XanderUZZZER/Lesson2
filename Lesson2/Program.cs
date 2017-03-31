@@ -11,9 +11,6 @@ namespace Lesson2
         static void Main(string[] args)
         {
             string answer = AskForChoice();
-
-            
-
             while (answer != "q")
             {
                 switch (answer)
@@ -74,6 +71,10 @@ namespace Lesson2
                         Task21();
                         answer = AskForChoice();
                         break;
+                    case "extra":
+                        ExtraTask();
+                        answer = AskForChoice();
+                        break;
                     default:
                         Console.Write("INPUT ERROR!!!\nTry again\n\n");
                         answer = AskForChoice();
@@ -84,7 +85,7 @@ namespace Lesson2
 
         static string AskForChoice()
         {
-            Console.WriteLine("Tasks:\t8  9  10  11  12  13  14  15  16  18  19  20  21");
+            Console.WriteLine("Tasks:\t8  9  10  11  12  13  14  15  16  18  19  20  21 extra");
             Console.WriteLine("\t***  Enter the task number, or enter \'q\' to quit  ***");
             return Console.ReadLine();
         }
@@ -320,6 +321,7 @@ namespace Lesson2
         }
         static void Task21()
         {
+            Console.WriteLine("Generates an array of int from 0 to 9 in random order");
             Random rnd = new Random();
             int[] a = new int[10];
             for (int i = 0; i < 10; i++)
@@ -333,14 +335,38 @@ namespace Lesson2
                 a[i1] = a[i2];
                 a[i2] = temp;
             }
-            Console.WriteLine("Значения элементов");
+            Console.WriteLine("0 9 random array");
             for (int i = 0; i < 10; i++)
             {
                 Console.Write("{0,4} ", a[i]);
-                //if (i % 5 == 4)
-                  //  Console.WriteLine();
             }
-            Console.ReadKey();
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
+        }
+        static void ExtraTask()
+        {
+            Console.WriteLine("Input array elements, to stop inputting, input \"-1\" (it will be last element)");            
+            int lastElement = int.Parse(Console.ReadLine());
+            int size = 1;
+            int[] mainArray = { lastElement };
+            int[] tempArray = { lastElement };
+            while (lastElement != -1)
+            {
+                lastElement = int.Parse(Console.ReadLine());
+                size++;
+
+                mainArray = new int[size];
+                for (int i = 0; i < (size-1); i++)
+                    mainArray[i] = tempArray[i];
+                mainArray[size-1] = lastElement;
+
+                tempArray = new int[size+1];
+                for (int i = 0; i < size; i++)
+                    tempArray[i] = mainArray[i];
+            }
+            Console.WriteLine();
+            for (int i = 0; i< mainArray.Length; i++)
+                Console.WriteLine(mainArray[i]);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
         }
     }
 }
