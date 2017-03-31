@@ -38,6 +38,42 @@ namespace Lesson2
                         Task12();
                         answer = AskForChoice();
                         break;
+                    case "13":
+                        Task13();
+                        answer = AskForChoice();
+                        break;
+                    case "14":
+                        Task14();
+                        answer = AskForChoice();
+                        break;
+                    case "15":
+                        Task15();
+                        answer = AskForChoice();
+                        break;
+                    case "16":
+                        Task16();
+                        answer = AskForChoice();
+                        break;
+                    case "17":
+                        Task17();
+                        answer = AskForChoice();
+                        break;
+                    case "18":
+                        Task18();
+                        answer = AskForChoice();
+                        break;
+                    case "19":
+                        Task19();
+                        answer = AskForChoice();
+                        break;
+                    case "20":
+                        Task20();
+                        answer = AskForChoice();
+                        break;
+                    case "21":
+                        Task21();
+                        answer = AskForChoice();
+                        break;
                     default:
                         Console.Write("INPUT ERROR!!!\nTry again\n\n");
                         answer = AskForChoice();
@@ -48,7 +84,7 @@ namespace Lesson2
 
         static string AskForChoice()
         {
-            Console.WriteLine("Tasks:\t8  9  10  11  12  13  14  15  16");
+            Console.WriteLine("Tasks:\t8  9  10  11  12  13  14  15  16  18  19  20  21");
             Console.WriteLine("\t***  Enter the task number, or enter \'q\' to quit  ***");
             return Console.ReadLine();
         }
@@ -86,7 +122,7 @@ namespace Lesson2
         }
         static void Task11()
         {
-            Console.WriteLine("Outpiuts the sum of elements of the array");
+            Console.WriteLine("Outputs the sum of elements of the array");
             Console.Write("Input array size: \t");
             int arraySize = int.Parse(Console.ReadLine());
             int[] array = new int[arraySize];
@@ -102,7 +138,7 @@ namespace Lesson2
         }
         static void Task12()
         {
-            Console.WriteLine("Outpiuts the multiplication of elements of the array");
+            Console.WriteLine("Outputs the multiplication of elements of the array");
             Console.Write("Input array size: \t");
             int arraySize = int.Parse(Console.ReadLine());
             int[] array = new int[arraySize];
@@ -114,6 +150,58 @@ namespace Lesson2
                 multiplication *= array[i];
             }
             Console.WriteLine("The multiplication is: " + multiplication);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task13()
+        {
+            Console.WriteLine("Outputs the minimum element of the array");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            int minI = 0;
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                if (array[i] < array[minI])
+                    minI = i;
+            }
+            Console.WriteLine("The minimum element is: " + array[minI]);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task14()
+        {
+            Console.WriteLine("Outputs the maximum element of the array");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            int maxI = 0;
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                if (array[i] > array[maxI])
+                    maxI = i;
+            }
+            Console.WriteLine("The maximum element is: " + array[maxI]);
+            Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task15()
+        {
+            Console.WriteLine("Outputs the arithmetic mean of elements of the array");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            int sum = 0;
+            double arithMean = 0;
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                sum += array[i];
+            }
+            arithMean = (double)sum / (double)arraySize;
+            Console.WriteLine("The the arithmetic mean is: " + arithMean);
             Console.WriteLine("\tDone\n--------------------------------------------------------------\n");
         }
         static void Task16()
@@ -140,6 +228,93 @@ namespace Lesson2
             for (int i = 0; i < arraySize; i++)
             {
                 Console.Write("{0,4}", array[i]);
+            }
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task17()
+        {
+            Console.WriteLine("Compares each element of 2 arrays");
+            Console.Write("Input arrays size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array1 = new int[arraySize];
+            int[] array2 = new int[arraySize];
+            bool equal = false;
+            Console.WriteLine("Fill the first array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+                array1[i] = int.Parse(Console.ReadLine());
+            Console.WriteLine("Fill the second array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+                array2[i] = int.Parse(Console.ReadLine());
+            Console.WriteLine("\tArray 1\tArray 2\tEqual");
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (array1[i] == array2[i])
+                    equal = true;
+                else
+                    equal = false;
+                Console.WriteLine("\t"+array1[i]+"\t"+array2[i]+"\t"+equal);
+            }
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task18()
+        {
+            Console.WriteLine("Doubles the value of all array elements");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            int[] array = new int[arraySize];
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+                array[i] *= 2;
+            }
+            for (int i = 0; i < arraySize; i++)
+            {
+                Console.Write("{0,4}", array[i]);
+            }
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task19()
+        {
+            Console.WriteLine("Reads an array of strings of a user-specified size from the keyboard.\nReads a pattern string, output all the elments containing this pattern and the index from which such substring begins");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            string[] arrayString = new string[arraySize];
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                arrayString[i] = Console.ReadLine();
+            }
+            Console.WriteLine("Input pattern string: ");
+            string pattern = Console.ReadLine();
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (arrayString[i].Contains(pattern))
+                {
+                    int index = arrayString[i].IndexOf(pattern);
+                    Console.WriteLine("Element #{0} contains pattern, value is: {1}, position is: {2}", i, arrayString[i], index);
+                }
+            }
+            Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
+        }
+        static void Task20()
+        {
+            Console.WriteLine("Reads an array of strings of a user-specified size from the keyboard.\nReads a pattern string, removes from elements the pattern");
+            Console.Write("Input array size: \t");
+            int arraySize = int.Parse(Console.ReadLine());
+            string[] arrayString = new string[arraySize];
+            Console.WriteLine("Fill the array in with {0} elements:", arraySize);
+            for (int i = 0; i < arraySize; i++)
+            {
+                arrayString[i] = Console.ReadLine();
+            }
+            Console.WriteLine("Input pattern string: ");
+            string pattern = Console.ReadLine();
+            Console.WriteLine("Edited array:");
+            for (int i = 0; i < arraySize; i++)
+            {
+                arrayString[i] = arrayString[i].Replace(pattern, "");
+                Console.WriteLine(arrayString[i]);
             }
             Console.WriteLine("\n\tDone\n--------------------------------------------------------------\n");
         }
